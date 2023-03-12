@@ -11,14 +11,14 @@ variable "user_b_name" {
 }
 
 variable "uploader_group_name" {
-    default = "uploader_group"
+    default = "uploader_group4r78345834"
 }
 
 variable "viewer_group_name" {
     default = "viewer_group"
 }
 variable "src_bucket_name" {
-    default = "img-src"
+    default = "img-src4327946239"
 }
 
 variable "dest_bucket_name" {
@@ -30,5 +30,5 @@ variable "function_name" {
 }
 
 variable "environment" {
-    default = "dev"
+    default = "prod"
 }
