@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+    localstack:
+      image: localstack/localstack:latest
+      container_name: localstack
+      ports: 
+        - "4566:4566"
+        - "9000:9000"
+      environment: 
+        - SERVICES=s3,iam,ambda
+        - DEFAULT_REGION=eu-west-2
+        - DATA_DIR=/tmp/localstack/data
+        - PORTAL_WEB_UI=9000
+        - LAMBDA_EXECUTOR=docker_reuse
+        - LAMBDA_DOCKER_NETWORK=localstack_net
+        - DOCKER_HOST=unix:///var/run/docker.sock
+        - START_WEB=1
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - localstack_data:/tmp/localstack/data
+      networks: 
+        default:
+volumes: 
+  localstack_data:
+networks: 
+  default:
+    external:
+      name: localstack_net
